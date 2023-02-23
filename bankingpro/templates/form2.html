@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: orange;
+  outline: none;
+}
+ div {
+            padding: 10px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<form action="form2" method="post">
+    {% csrf_token %}
+     <div class="container">
+  <center>  <h1> Customer Registeration Form</h1> </center>
+  <hr>
+    <label> Name </label>
+<input type="text" name="name" placeholder= "name" size="15" required >
+         <label> DOB </label>
+    <input type="date" name="dob" placeholder ="Enter your date of birth"><br><br>
+         <label> Age </label>
+    <input type="text" name="age" placeholder ="Enter your age"><br>
+      <label>
+          Gender :</label>
+          <input type="radio" name="gender" value="M"> Male<br>
+          <input type="radio" name="gender" value="F"> Female<br>
+        <input type="radio" name="gender" value="O"> Other<br>
+<!--<input type="radio" name="male"/> Male-->
+<!--<input type="radio" name="female"/> Female-->
+<!--<input type="radio" name="other"/> Other-->
+
+         <label> Phone </label>
+    <input type="text" name="phone" placeholder ="Enter your phoneno"><br>
+
+   <label for="email">Email</label>
+ <input type="text" placeholder="Enter Email" name="email" required>  <br><br>
+         <label> Address </label>
+    <input type="text" name="address" placeholder ="Enter your address"><br>
+
+         <!-- First dropdown -->
+         <br>
+         <label> District </label>
+<select id="dropdown1" name="dropdown">
+  <option value="District" disabled selected name="select">Select your district</option>
+  <option value="option1">Calicut</option>
+  <option value="option2">Kannur</option>
+    <option value="option3">Ernakulam</option>
+     <option value="option4">Malappuram</option>
+     <option value="option5">Palakkad</option>
+
+</select>
+
+<!-- Second dropdown (hidden by default) -->
+<select id="dropdown2" name="new_dropdown" style="display:none">
+  <option value="" disabled selected>Select a sub district</option>
+  <option value="option1-1">Thamarassery</option>
+  <option value="option1-2">Koyilandi</option>
+  <option value="option1-3">Beypur</option>
+  <option value="option1-4">Vadakara</option>
+
+
+
+</select>
+
+<select id="dropdown3" name="my_dropdown" style="display:none">
+  <option value="" disabled selected>Select an option</option>
+  <option value="option2-1">Thalassery</option>
+  <option value="option2-2">Iritti</option>
+  <option value="option2-3">Payyanur</option>
+  <option value="option2-4">Thaliparamba</option>
+</select>
+
+         <select id="dropdown4" name="my_dropdown_" style="display:none">
+  <option value="" disabled selected>Select an option</option>
+  <option value="option3-1">Cochin</option>
+  <option value="option3-2">Aluva</option>
+  <option value="option3-3">Edappalli</option>
+  <option value="option3-4">Vypin</option>
+</select>
+         <select id="dropdown5" name="ds_dropdown" style="display:none">
+  <option value="" disabled selected>Select an option</option>
+  <option value="option4-1">Eranad</option>
+  <option value="option4-2">Kondotti</option>
+  <option value="option4-3">Nilambur</option>
+  <option value="option4-4">Ponnani</option>
+</select>
+          <select id="dropdown6"  name="pk_dropdown" style="display:none">
+  <option value="" disabled selected>Select an option</option>
+  <option value="option5-1">Chittur</option>
+  <option value="option5-2">Ottapalam</option>
+  <option value="option5-3">Mannarkad</option>
+  <option value="option5-4">Pattambi</option>
+</select>
+
+
+<br>
+         <br>
+     <label>
+Account type :
+</label>
+<select name="account">
+<option value="Account type">Account type</option>
+<option value="Savings account">Savings account</option>
+<option value="current account">current account</option>
+
+</select>
+    <br>
+         <br>
+<label>
+Materials :
+</label>
+ <input type="checkbox" id="debitcard" name="debitcard" value="Debit card">
+    <label for="debitcard">Debit card</label>
+     <input type="checkbox" id="creditcard" name="creditcard" value="Credit card">
+    <label for="creditcard">Credit card</label>
+     <input type="checkbox" id="cheque" name="cheque" value="cheque book">
+    <label for="cheque">cheque book</label>
+
+    <br><br>
+         <input type="submit" onclick="alert('Application accepted!!')" value="Submit" ><br>
+
+ <a href="register">"Click here to register"</a>
+
+</ul>
+
+
+
+         <button onclick="window.location.href ='/';">Logout</button>
+     </div>
+
+</form>
+</body>
+<script>
+  $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option1') {
+        $('#dropdown2').show();
+      } else {
+        $('#dropdown2').hide();
+      }
+    });
+  });
+
+   $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option2') {
+        $('#dropdown3').show();
+      } else {
+        $('#dropdown3').hide();
+      }
+    });
+  });
+
+    $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option3') {
+        $('#dropdown4').show();
+      } else {
+        $('#dropdown4').hide();
+      }
+    });
+  });
+     $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option4') {
+        $('#dropdown5').show();
+      } else {
+        $('#dropdown5').hide();
+      }
+    });
+  });
+     $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option5') {
+        $('#dropdown6').show();
+      } else {
+        $('#dropdown6').hide();
+      }
+    });
+  });
+</script>
+
+</html>
