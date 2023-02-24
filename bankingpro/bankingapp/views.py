@@ -28,7 +28,6 @@ def login(request):
 
 def register(request):
     if request.method == 'POST':
-
         username = request.POST['username']
         password = request.POST['password']
         cpassword = request.POST['password1']
@@ -81,13 +80,14 @@ def detailform(request):
                 if not materials:
                     materials = request.POST.get('creditcard')
                 if not materials:
-                    materials =request.POST.get('cheque')
+                    materials = request.POST.get('cheque')
                 detail_obj = detail.objects.create(name=name, dob=dob, gender=gender, phone=phone, email=email,
                                                    address=address, district=district, subd=sub, account=account,
                                                    materials=materials)
                 detail_obj.save()
-                messages.success(request, 'Application accepted')
+
                 return redirect("/")
+
         except Exception as e:
             print(str(e))
             # details=detailform(name=name,dob=dob,phone=phone,email=email,address=address,district=district)

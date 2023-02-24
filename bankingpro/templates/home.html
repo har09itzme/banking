@@ -112,3 +112,77 @@
                     </div>
                 </div>
 </nav>
+
+
+    if(nameText=="" || ageText==""|| dobText==""|| addressText=""|| genderText==""|| phoneText=""|| emailText||==""|| accountText==""|| materialsText=="" ){
+
+  var nameText=$("#txtName").val();
+    var ageText=$("#txtAge").val();
+    var dobText=$("#txtDob").val();
+    var phoneText=$("#txtPhone").val();
+var addressText=$("#txtAddress").val();
+     var genderText=$("#txtgender").val();
+      var emailText=$("#txtemail").val();
+       var accountText=$("#txtacnt").val();
+        var materialsText=$("#txtmatrls").val();
+
+
+  $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option1') {
+        $('#dropdown2').show();
+      } else {
+        $('#dropdown2').hide();
+      }
+    });
+
+  });
+function Validate(){
+    debugger;
+
+    var name=$("#txtName").val();
+    var age=$("#txtAge").val();
+    if(name=="" || age==""){
+    alert("Please enter all the fields");
+    }
+    else{
+    alert("please enter the fields");
+    }
+    }
+   $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option2') {
+        $('#dropdown3').show();
+      } else {
+        $('#dropdown3').hide();
+      }
+    });
+  });
+
+    $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option3') {
+        $('#dropdown4').show();
+      } else {
+        $('#dropdown4').hide();
+      }
+    });
+  });
+     $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option4') {
+        $('#dropdown5').show();
+      } else {
+        $('#dropdown5').hide();
+      }
+    });
+  });
+     $(document).ready(function() {
+    $('#dropdown1').change(function() {
+      if ($(this).val() === 'option5') {
+        $('#dropdown6').show();
+      } else {
+        $('#dropdown6').hide();
+      }
+    });
+  });

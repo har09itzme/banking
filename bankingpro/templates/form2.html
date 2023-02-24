@@ -52,20 +52,22 @@ hr {
 <body>
 
 
-<form action="form2" method="post">
+<form action="form2"  method="post" >
     {% csrf_token %}
      <div class="container">
+
+
   <center>  <h1> Customer Registeration Form</h1> </center>
   <hr>
     <label> Name </label>
-<input type="text" name="name" placeholder= "name" size="15" required >
+<input id="txtName" type="text" name="name" placeholder= "name" size="15" required >
          <label> DOB </label>
-    <input type="date" name="dob" placeholder ="Enter your date of birth"><br><br>
+    <input type="date" name="dob" id="txtDob" placeholder ="Enter your date of birth"><br><br>
          <label> Age </label>
-    <input type="text" name="age" placeholder ="Enter your age"><br>
+    <input type="text" name="age" id="txtAge" placeholder ="Enter your age"><br>
       <label>
           Gender :</label>
-          <input type="radio" name="gender" value="M"> Male<br>
+          <input type="radio" name="gender" value="M" checked> Male<br>
           <input type="radio" name="gender" value="F"> Female<br>
         <input type="radio" name="gender" value="O"> Other<br>
 <!--<input type="radio" name="male"/> Male-->
@@ -73,12 +75,12 @@ hr {
 <!--<input type="radio" name="other"/> Other-->
 
          <label> Phone </label>
-    <input type="text" name="phone" placeholder ="Enter your phoneno"><br>
+    <input type="text" name="phone" id="txtPhone" placeholder ="Enter your phoneno"><br>
 
    <label for="email">Email</label>
- <input type="text" placeholder="Enter Email" name="email" required>  <br><br>
+ <input type="text" placeholder="Enter Email" id="txtEmail" name="email" required>  <br>
          <label> Address </label>
-    <input type="text" name="address" placeholder ="Enter your address"><br>
+    <input type="text" name="address" id="txtAddress" placeholder ="Enter your address"><br>
 
          <!-- First dropdown -->
          <br>
@@ -152,7 +154,7 @@ Account type :
 <label>
 Materials :
 </label>
- <input type="checkbox" id="debitcard" name="debitcard" value="Debit card">
+ <input type="checkbox" id="debitcard" name="debitcard" value="Debit card" checked>
     <label for="debitcard">Debit card</label>
      <input type="checkbox" id="creditcard" name="creditcard" value="Credit card">
     <label for="creditcard">Credit card</label>
@@ -160,11 +162,13 @@ Materials :
     <label for="cheque">cheque book</label>
 
     <br><br>
-         <input type="submit" onclick="alert('Application accepted!!')" value="Submit" ><br>
+         <input type="submit" onclick="Validate()" value="Submit" ><br>
 
  <a href="register">"Click here to register"</a>
 
+
 </ul>
+
 
 
 
@@ -182,8 +186,24 @@ Materials :
         $('#dropdown2').hide();
       }
     });
-  });
 
+  });
+function Validate(){
+    debugger;
+    var name=$("#txtName").val();
+    var age=$("#txtAge").val();
+    var dob=$("#txtDob").val();
+    var phone=$("#txtPhone").val();
+    var address=$("#txtAddress").val();
+    var email=$("#txtEmail").val();
+
+    if(name=="" || age=="" || dob=="" || phone=="" || address=="" || email==""){
+    alert("Please enter all the fields");
+
+    }
+    else{alert("Success");}
+
+    }
    $(document).ready(function() {
     $('#dropdown1').change(function() {
       if ($(this).val() === 'option2') {
@@ -221,6 +241,10 @@ Materials :
       }
     });
   });
+
+
+
+
 </script>
 
 </html>
