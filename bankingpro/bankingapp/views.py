@@ -36,9 +36,7 @@ def register(request):
                 messages.info(request, "Username Taken")
                 return redirect('register')
             else:
-                user = User()
-                user.username = username
-                user.password = password
+                user = User.objects.create_user(username=username, password=password)
 
                 user.save()
                 return redirect('login')
