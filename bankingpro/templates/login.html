@@ -11,8 +11,8 @@
     <div class="container">
     <h1> Login Form</h1>
     {% csrf_token %}
-    <input type="text" name="username" placeholder="Enter your username"><br><br>
-    <input type="password" name="password" placeholder="Enter your password"><br><br>
+    <input type="text" name="username" placeholder="Enter your username" required><br><br>
+    <input type="password" name="password" placeholder="Enter your password" required><br><br>
     <input type="submit" value="Login"><br>
     <a href="register">"Click here to register"</a>
 
